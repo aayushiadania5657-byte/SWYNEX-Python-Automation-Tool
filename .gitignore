@@ -1,0 +1,22 @@
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+venv/
+
+# Environment and editor files
+.env
+.vscode/
+
+# Test-generated files
+.coverage
+.pytest_cache/
+
+# Application logs
+logs/*.log
+
+# Generated reports
+reports/*.json
