@@ -5,7 +5,7 @@ A Python-based file organization automation tool developed as part of the SWYNEX
 
 ## Overview
 
-The Smart File Organizer scans a selected folder and categorizes files by their extensions. It supports preview mode, duplicate filename protection, JSON reports, and application logging.
+The Smart File Organizer scans a selected folder and categorizes files by their extensions. It supports preview mode, duplicate filename protection, JSON reports, application logging, and automated tests.
 
 ## Features
 
@@ -14,7 +14,7 @@ The Smart File Organizer scans a selected folder and categorizes files by their 
 - Preview mode lets users review planned changes before moving files.
 - Prevents overwriting files when duplicate names exist.
 - Generates a JSON report of each run.
-- Records application errors in a log file.
+- Records run summaries and application errors in a log file.
 - Includes automated unit tests.
 - Uses Python's standard library; no paid APIs or external packages are required.
 
@@ -28,6 +28,7 @@ SWYNEX-Python-Automation-Tool/
 ├── tests/
 │   └── test_file_organizer.py
 ├── sample_files/
+├── demo_input/
 ├── reports/
 ├── logs/
 ├── .gitignore
@@ -61,21 +62,23 @@ No additional packages are required.
 
 ### 1. Preview file organization
 
-Preview the changes without moving files:
+Preview the planned changes without moving files:
 
 ```bash
-python src/main.py --folder sample_files
+python src/main.py --folder demo_input
 ```
 
 ### 2. Apply file organization
 
-After reviewing the preview, run:
+After reviewing the preview, organize the files:
 
 ```bash
-python src/main.py --folder sample_files --apply
+python src/main.py --folder demo_input --apply
 ```
 
-**Warning:** Apply mode moves files into category folders inside the selected directory. Test with sample files before using a folder containing important personal data.
+**Demo note:** The `demo_input` folder contains example files for testing. The file named `project_report.pdf` is a text placeholder used to demonstrate extension-based categorization, not a valid PDF document. Preview mode does not move files; `--apply` moves them into category folders.
+
+**Safety warning:** Test with sample files first and keep backups before organizing a folder containing important personal data.
 
 ### 3. Run automated tests
 
@@ -86,7 +89,7 @@ python -m unittest discover -s tests -v
 ## Reports and Logs
 
 - `reports/organization_report.json` stores the latest run's results.
-- `logs/organizer.log` records application errors.
+- `logs/organizer.log` records run summaries and application errors.
 
 These generated files are excluded from Git by `.gitignore`.
 
@@ -108,7 +111,3 @@ This project demonstrates file handling, command-line interfaces, exception hand
 ## Internship Context
 
 Developed as a practical automation project for the SWYNEX Python Internship.
-
-## Disclaimer
-
-Use preview mode first and keep backups of important files before applying file organization.
